@@ -14,6 +14,11 @@ import { apiSlice } from "../../app/api/apiSlice"
 //   Allows you to specify a sort order for entities based on a property, simplifying the process of maintaining a sorted collection.
 const usersAdapter = createEntityAdapter({})
 
+// Initial state is typically:
+// {
+//     ids: [],
+//     entities: {},
+// }
 const initialState = usersAdapter.getInitialState()
 
 

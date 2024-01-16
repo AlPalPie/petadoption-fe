@@ -1,15 +1,15 @@
 import { Link } from 'react-router-dom'
-import AnimalsList from '../features/animals/AnimalsList'
+import ImagesList from '../features/images/ImagesList'
 
 const Public = () => {
     const content = (
         <section className="public">
             <header>
-                <h1>Welcome to the <span className="nowrap">Amazing Animal Adoption Agency</span></h1>
+                <h1>Welcome to the <span className="nowrap">Amazing Image Adoption Agency</span></h1>
             </header>
             <main className="public__main">
                 <p>Main Body</p>
-                <AnimalsList />
+                <ImagesList />
             </main>
             <footer>
                 <Link to="/login">User Login</Link>
