@@ -1,27 +1,55 @@
 import { useGetAnimalsQuery } from './animalsApiSlice'
 import { memo } from 'react'
+import { useGetImagesQuery } from '../images/imagesApiSlice'
+import Image from '../images/Image'
+import PulseLoader from 'react-spinners/PulseLoader'
 
-const Animal = ({ animalId }) => {
+const Animal = ({ animalEntityId }) => {
 
     const { animal } = useGetAnimalsQuery("animalsList", {
         selectFromResult: ({ data }) => ({
-            animal: data?.entities[animalId]
+            animal: data?.entities[animalEntityId]
         }),
     })
+    const animalId = animal.id
+
+    const {
+        data: images,
+        isLoading,
+        isSuccess,
+        isError,
+        error
+    } = useGetImagesQuery('imagesList', {
+        refetchOnFocus: true,
+        refetchOnMountOrArgChange: true
+    })
+
+    let content
+
+    if (isLoading) content = <PulseLoader color={"#FFF"} />
+
+    if (isError) content = <p className="errmsg">{error?.data?.message}</p>
+
+    let imageContent = <p>No images</p>
+    if (isSuccess) {
+        const { ids: imageEntityIds, entities: imageEntities } = images
+        const filteredImageEntityIds = imageEntityIds.filter(imageEntityId => imageEntities[imageEntityId].animal === animalId)
+        imageContent = filteredImageEntityIds?.length && filteredImageEntityIds.map(imageEntityId => <Image key={imageEntityId} imageEntityId={imageEntityId} />)
+    }
 
     if (animal) {
-
-        return (
-
-            <div className="card" style={ {width: '18rem'} }>
-                <img src={"https://via.placeholder.com/400"} className="card-img-top" alt={animal.name}></img>
-                <div className="card-body">
-                    <p className="card-text">{animal.description}</p>
-                    <p className="card-text">{animal.pics}</p>
+        content = (
+            <>
+                <h3>{animal.name}</h3>
+                <p>{animal.description}</p>
+                <div>
+                    <div className="animal_image_list">
+                        {imageContent}
+                    </div>
                 </div>
-            </div>
-
+            </>
         )
+        return content
 
     } else return null
 }

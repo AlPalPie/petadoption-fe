@@ -134,6 +134,16 @@ a:focus-visible {
   content: "➜ "
 }
 
+.images_list {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.card {
+  margin: 0.25rem;
+}
+
 /* || DASH HEADER, CONTAINER & FOOTER */
 
 .dash-header {

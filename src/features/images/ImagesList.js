@@ -28,7 +28,7 @@ const ImagesList = () => {
 
         const { ids } = images
         content = (
-            <div>
+            <div className="images_list">
                 {ids?.length && ids.map(imageEntityId => <Image key={imageEntityId} imageEntityId={imageEntityId} />)}
             </div>
         )

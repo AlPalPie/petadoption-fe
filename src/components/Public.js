@@ -8,7 +8,7 @@ const Public = () => {
                 <h1>Welcome to the <span className="nowrap">Amazing Image Adoption Agency</span></h1>
             </header>
             <main className="public__main">
-                <p>Main Body</p>
+                <h3>These furry friends are all available for adoption!</h3>
                 <ImagesList />
             </main>
             <footer>

@@ -15,6 +15,7 @@ import PersistLogin from './features/auth/PersistLogin'
 import RequireAuth from './features/auth/RequireAuth'
 import { ROLES } from './config/roles'
 import useTitle from './hooks/useTitle';
+import AnimalsList from './features/animals/AnimalsList';
 
 function App() {
   useTitle('Amazing Animal Adoption Agency of America')
@@ -44,6 +45,12 @@ function App() {
 
                 <Route path="notes">
                   <Route index element={<NotesList />} />
+                  <Route path=":id" element={<EditNote />} />
+                  <Route path="new" element={<NewNote />} />
+                </Route>
+
+                <Route path="animals">
+                  <Route index element={<AnimalsList />} />
                   <Route path=":id" element={<EditNote />} />
                   <Route path="new" element={<NewNote />} />
                 </Route>

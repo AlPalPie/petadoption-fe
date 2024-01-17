@@ -20,6 +20,8 @@ const Welcome = () => {
 
             <p><Link to="/dash/notes">View techNotes</Link></p>
 
+            <p><Link to="/dash/animals">View animals</Link></p>
+
             <p><Link to="/dash/notes/new">Add New techNote</Link></p>
 
             {(isManager || isAdmin) && <p><Link to="/dash/users">View User Settings</Link></p>}

@@ -32,7 +32,7 @@ const AnimalsList = () => {
 
         content = (
             <div>
-                {ids?.length && ids.map(animalId => <Animal key={animalId} animalId={animalId} />)}
+                {ids?.length && ids.map(animalEntityId => <Animal key={animalEntityId} animalEntityId={animalEntityId} />)}
             </div>
         )
     }
