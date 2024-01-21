@@ -37,9 +37,8 @@ export const animalsApiSlice = apiSlice.injectEndpoints({
             query: initialAnimal => ({
                 url: '/animals',
                 method: 'POST',
-                body: {
-                    ...initialAnimal,
-                }
+                body: initialAnimal,
+                formData: true
             }),
             invalidatesTags: [
                 { type: 'Animal', id: "LIST" }

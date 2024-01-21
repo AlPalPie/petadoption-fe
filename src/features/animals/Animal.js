@@ -43,7 +43,7 @@ const Animal = ({ animalEntityId }) => {
                 <h3>{animal.name}</h3>
                 <p>{animal.description}</p>
                 <div>
-                    <div className="animal_image_list">
+                    <div className="images_list">
                         {imageContent}
                     </div>
                 </div>

@@ -5,7 +5,7 @@ const Public = () => {
     const content = (
         <section className="public">
             <header>
-                <h1>Welcome to the <span className="nowrap">Amazing Image Adoption Agency</span></h1>
+                <h1>Welcome to the <span className="nowrap">Amazing Animal Adoption Agency</span></h1>
             </header>
             <main className="public__main">
                 <h3>These furry friends are all available for adoption!</h3>

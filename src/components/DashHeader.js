@@ -5,7 +5,8 @@ import {
     faFilePen,
     faUserGear,
     faUserPlus,
-    faRightFromBracket
+    faRightFromBracket,
+    faCat
 } from "@fortawesome/free-solid-svg-icons"
 import { useNavigate, Link, useLocation } from 'react-router-dom'
 import { useSendLogoutMutation } from '../features/auth/authApiSlice'
@@ -15,6 +16,8 @@ import PulseLoader from 'react-spinners/PulseLoader'
 const DASH_REGEX = /^\/dash(\/)?$/
 const NOTES_REGEX = /^\/dash\/notes(\/)?$/
 const USERS_REGEX = /^\/dash\/users(\/)?$/
+const ANIMALS_REGEX = /^\/dash\/animals(\/)?$/
+
 
 const DashHeader = () => {
     const { isManager, isAdmin } = useAuth()
@@ -35,11 +38,12 @@ const DashHeader = () => {
 
     const onNewNoteClicked = () => navigate('/dash/notes/new')
     const onNewUserClicked = () => navigate('/dash/users/new')
+    const onNewAnimalClicked = () => navigate('/dash/animals/new')
     const onNotesClicked = () => navigate('/dash/notes')
     const onUsersClicked = () => navigate('/dash/users')
 
     let dashClass = null
-    if (!DASH_REGEX.test(pathname) && !NOTES_REGEX.test(pathname) && !USERS_REGEX.test(pathname)) {
+    if (!DASH_REGEX.test(pathname) && !NOTES_REGEX.test(pathname) && !USERS_REGEX.test(pathname) && !ANIMALS_REGEX.test(pathname)) {
         dashClass = "dash-header__container--small"
     }
 
@@ -52,6 +56,19 @@ const DashHeader = () => {
                 onClick={onNewNoteClicked}
             >
                 <FontAwesomeIcon icon={faFileCirclePlus} />
+            </button>
+        )
+    }
+
+    let newAnimalButton = null
+    if (ANIMALS_REGEX.test(pathname)) {
+        newAnimalButton = (
+            <button
+                className="icon-button"
+                title="New Animal"
+                onClick={onNewAnimalClicked}
+            >
+                <FontAwesomeIcon icon={faCat} />
             </button>
         )
     }
@@ -116,6 +133,7 @@ const DashHeader = () => {
         buttonContent = (
             <>
                 {newNoteButton}
+                {newAnimalButton}
                 {newUserButton}
                 {notesButton}
                 {userButton}

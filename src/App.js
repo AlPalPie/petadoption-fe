@@ -16,6 +16,7 @@ import RequireAuth from './features/auth/RequireAuth'
 import { ROLES } from './config/roles'
 import useTitle from './hooks/useTitle';
 import AnimalsList from './features/animals/AnimalsList';
+import NewAnimal from './features/animals/NewAnimal';
 
 function App() {
   useTitle('Amazing Animal Adoption Agency of America')
@@ -52,7 +53,7 @@ function App() {
                 <Route path="animals">
                   <Route index element={<AnimalsList />} />
                   <Route path=":id" element={<EditNote />} />
-                  <Route path="new" element={<NewNote />} />
+                  <Route path="new" element={<NewAnimal />} />
                 </Route>
 
               </Route>{/* End Dash */}

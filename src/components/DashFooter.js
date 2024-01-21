@@ -27,9 +27,14 @@ const DashFooter = () => {
 
     const content = (
         <footer className="dash-footer">
-            {goHomeButton}
-            <p>Current User: {username}</p>
-            <p>Status: {status}</p>
+            <div className="dash-footer__info">
+                {goHomeButton}
+                <p>Current User: {username}</p>
+                <p>Status: {status}</p>
+            </div>
+            <span className="attribution">
+                    <a href="http://www.freepik.com">*Background Image Designed by Elsystudio / Freepik</a>
+            </span>
         </footer>
     )
     return content
