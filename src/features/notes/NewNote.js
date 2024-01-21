@@ -2,9 +2,10 @@ import NewNoteForm from './NewNoteForm'
 import { useGetUsersQuery } from '../users/usersApiSlice'
 import PulseLoader from 'react-spinners/PulseLoader'
 import useTitle from '../../hooks/useTitle'
+import { getAppTitle } from '../../App'
 
 const NewNote = () => {
-    useTitle('techNotes: New Note')
+    useTitle(`${getAppTitle()}: New Note`)
 
     const { users } = useGetUsersQuery("usersList", {
         selectFromResult: ({ data }) => ({

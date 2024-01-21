@@ -5,9 +5,10 @@ import { useGetUsersQuery } from '../users/usersApiSlice'
 import useAuth from '../../hooks/useAuth'
 import PulseLoader from 'react-spinners/PulseLoader'
 import useTitle from '../../hooks/useTitle'
+import { getAppTitle } from '../../App'
 
 const EditNote = () => {
-    useTitle('techNotes: Edit Note')
+    useTitle(`${getAppTitle()}: Edit Note`)
 
     const { id } = useParams()
 

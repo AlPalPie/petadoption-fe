@@ -29,24 +29,19 @@ const NewAnimalForm = () => {
 
     const onNameChanged = e => setName(e.target.value)
     const onDescriptionChanged = e => setDescription(e.target.value)
-    const onFileChanged = e => {
-        const file = e.target.files[0]
-        setFile(file)
-    }
+    const onFileChanged = e => setFile(e.target.files[0])
 
     const canSave = [name, description].every(Boolean) && !isLoading
 
     const onSaveAnimalClicked = async (e) => {
         e.preventDefault()
         if (canSave) {
-            console.log(`Creating New Animal with name = ${name}`)
             let multiFormData = new FormData();
             multiFormData.append("multerimage", file)
             multiFormData.append("name", name)
             multiFormData.append("description", description)
 
-            const result = await addNewAnimal(multiFormData)
-            console.log('Upload response:', result.data)
+            await addNewAnimal(multiFormData)
         }
     }
 

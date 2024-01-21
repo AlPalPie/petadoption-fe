@@ -5,10 +5,11 @@ import { setCredentials } from './authSlice'
 import { useLoginMutation } from './authApiSlice'
 import usePersist from '../../hooks/usePersist'
 import useTitle from '../../hooks/useTitle'
+import { getAppTitle } from '../../App'
 import PulseLoader from 'react-spinners/PulseLoader'
 
-const Login = () => {
-    useTitle('Employee Login')
+const Login = () => { 
+    useTitle(`${getAppTitle()}: User Login`)
 
     const userRef = useRef()
     const errRef = useRef()

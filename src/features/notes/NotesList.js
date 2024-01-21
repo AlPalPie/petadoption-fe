@@ -3,9 +3,11 @@ import Note from "./Note"
 import useAuth from "../../hooks/useAuth"
 import useTitle from "../../hooks/useTitle"
 import PulseLoader from 'react-spinners/PulseLoader'
+import { getAppTitle } from "../../App"
 
 const NotesList = () => {
     useTitle('techNotes: Notes List')
+    useTitle(`${getAppTitle()}: Notes List`)
 
     const { username, isManager, isAdmin } = useAuth()
 

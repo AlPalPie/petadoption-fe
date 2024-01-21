@@ -5,12 +5,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSave } from "@fortawesome/free-solid-svg-icons"
 import { ROLES } from "../../config/roles"
 import useTitle from "../../hooks/useTitle"
+import { getAppTitle } from "../../App"
 
 const USER_REGEX = /^[A-z]{3,20}$/
 const PWD_REGEX = /^[A-z0-9!@#$%]{4,12}$/
 
 const NewUserForm = () => {
-    useTitle('techNotes: New User')
+    useTitle(`${getAppTitle()}: New User`)
 
     const [addNewUser, {
         isLoading,

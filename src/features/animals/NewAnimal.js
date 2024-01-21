@@ -1,8 +1,9 @@
 import NewAnimalForm from './NewAnimalForm'
 import useTitle from '../../hooks/useTitle'
+import { getAppTitle } from '../../App'
 
 const NewAnimal = () => {
-    useTitle('Amazing Animal Adoption Agency: New Animal')
+    useTitle(`${getAppTitle()}: New Animal`)
 
     const content = <NewAnimalForm />
 

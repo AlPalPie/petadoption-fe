@@ -18,8 +18,14 @@ import useTitle from './hooks/useTitle';
 import AnimalsList from './features/animals/AnimalsList';
 import NewAnimal from './features/animals/NewAnimal';
 
+export const getAppTitle = () => {
+  return 'Amazing Animal Adoption Agency'
+}
+
+
+
 function App() {
-  useTitle('Amazing Animal Adoption Agency of America')
+  useTitle(getAppTitle())
 
   return (
     <Routes>

@@ -17,7 +17,6 @@ const Image = ({ imageEntityId }) => {
         if (image.path) {
             srcImage = getBaseUrl() + '/' + image.path
         }
-        console.log(srcImage)
 
         return (
 

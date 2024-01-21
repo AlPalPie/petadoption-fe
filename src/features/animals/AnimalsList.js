@@ -2,9 +2,10 @@ import { useGetAnimalsQuery } from "./animalsApiSlice"
 import Animal from './Animal'
 import useTitle from "../../hooks/useTitle"
 import PulseLoader from 'react-spinners/PulseLoader'
+import { getAppTitle } from "../../App"
 
 const AnimalsList = () => {
-    useTitle('Animals List')
+    useTitle(`${getAppTitle()}: Animal List`)
 
     const {
         data: animals,

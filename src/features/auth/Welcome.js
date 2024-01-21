@@ -1,12 +1,13 @@
 import { Link } from 'react-router-dom'
 import useAuth from '../../hooks/useAuth'
 import useTitle from '../../hooks/useTitle'
+import { getAppTitle } from '../../App'
 
 const Welcome = () => {
 
     const { username, isManager, isAdmin } = useAuth()
 
-    useTitle(`Amazing Animal Adoption Agency: ${username}`)
+    useTitle(`Welcome ${username} to the ${getAppTitle()}`)
 
     const date = new Date()
     const today = new Intl.DateTimeFormat('en-US', { dateStyle: 'full', timeStyle: 'long' }).format(date)
