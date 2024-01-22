@@ -17,6 +17,7 @@ import { ROLES } from './config/roles'
 import useTitle from './hooks/useTitle';
 import AnimalsList from './features/animals/AnimalsList';
 import NewAnimal from './features/animals/NewAnimal';
+import EditAnimal from './features/animals/EditAnimal';
 
 export const getAppTitle = () => {
   return 'Amazing Animal Adoption Agency'
@@ -45,21 +46,21 @@ function App() {
                 <Route element={<RequireAuth allowedRoles={[ROLES.Manager, ROLES.Admin]} />}>
                   <Route path="users">
                     <Route index element={<UsersList />} />
-                    <Route path=":id" element={<EditUser />} />
                     <Route path="new" element={<NewUserForm />} />
+                    <Route path=":id" element={<EditUser />} />
                   </Route>
                 </Route>
 
                 <Route path="notes">
                   <Route index element={<NotesList />} />
-                  <Route path=":id" element={<EditNote />} />
                   <Route path="new" element={<NewNote />} />
+                  <Route path=":id" element={<EditNote />} />
                 </Route>
 
                 <Route path="animals">
                   <Route index element={<AnimalsList />} />
-                  <Route path=":id" element={<EditNote />} />
                   <Route path="new" element={<NewAnimal />} />
+                  <Route path=":id" element={<EditAnimal />} />
                 </Route>
 
               </Route>{/* End Dash */}

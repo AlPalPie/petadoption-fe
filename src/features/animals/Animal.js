@@ -3,8 +3,15 @@ import { memo } from 'react'
 import { useGetImagesQuery } from '../images/imagesApiSlice'
 import Image from '../images/Image'
 import PulseLoader from 'react-spinners/PulseLoader'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {
+    faPencil
+} from "@fortawesome/free-solid-svg-icons"
+import { useNavigate } from 'react-router-dom'
 
 const Animal = ({ animalEntityId }) => {
+
+    const navigate = useNavigate()
 
     const { animal } = useGetAnimalsQuery("animalsList", {
         selectFromResult: ({ data }) => ({
@@ -37,10 +44,24 @@ const Animal = ({ animalEntityId }) => {
         imageContent = filteredImageEntityIds?.length && filteredImageEntityIds.map(imageEntityId => <Image key={imageEntityId} imageEntityId={imageEntityId} />)
     }
 
+    const onEditAnimalClicked = () => navigate(`/dash/animals/${animalEntityId}`)
+
+
     if (animal) {
         content = (
             <>
-                <h3>{animal.name}</h3>
+                <div className="inline">
+                    <h3>{animal.name}</h3>
+                    <button
+                        className="icon-button"
+                        title="Edit Animal"
+                        onClick={onEditAnimalClicked}
+                    >
+                        <div className="icon-row">
+                            <FontAwesomeIcon icon={faPencil} />
+                        </div>
+                    </button>
+                </div>
                 <p>{animal.description}</p>
                 <div>
                     <div className="images_list">

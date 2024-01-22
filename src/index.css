@@ -405,3 +405,9 @@ tr {
   justify-content: end;
   align-items:end;
 }
+
+/* Formatting */
+
+.inline {
+  display: inline;
+}

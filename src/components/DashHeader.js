@@ -12,6 +12,7 @@ import { useNavigate, Link, useLocation } from 'react-router-dom'
 import { useSendLogoutMutation } from '../features/auth/authApiSlice'
 import useAuth from '../hooks/useAuth'
 import PulseLoader from 'react-spinners/PulseLoader'
+import { getAppTitle } from '../App'
 
 const DASH_REGEX = /^\/dash(\/)?$/
 const NOTES_REGEX = /^\/dash\/notes(\/)?$/
@@ -68,7 +69,9 @@ const DashHeader = () => {
                 title="New Animal"
                 onClick={onNewAnimalClicked}
             >
-                <FontAwesomeIcon icon={faCat} />
+                <div className="icon-row">
+                    <FontAwesomeIcon icon={faCat} />
+                </div>
             </button>
         )
     }
@@ -149,7 +152,7 @@ const DashHeader = () => {
             <header className="dash-header">
                 <div className={`dash-header__container ${dashClass}`}>
                     <Link to="/dash">
-                        <h1 className="dash-header__title">Amazing Animal Adoption Agency</h1>
+                        <h1 className="dash-header__title">{getAppTitle()}</h1>
                     </Link>
                     <nav className="dash-header__nav">
                         {buttonContent}

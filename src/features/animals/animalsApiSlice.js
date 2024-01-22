@@ -48,19 +48,18 @@ export const animalsApiSlice = apiSlice.injectEndpoints({
             query: initialAnimal => ({
                 url: '/animals',
                 method: 'PATCH',
-                body: {
-                    ...initialAnimal,
-                }
+                body: initialAnimal,
+                formData: true
             }),
             invalidatesTags: (result, error, arg) => [
                 { type: 'Animal', id: arg.id }
             ]
         }),
         deleteAnimal: builder.mutation({
-            query: ({ id }) => ({
+            query: ({ name }) => ({
                 url: `/animals`,
                 method: 'DELETE',
-                body: { id }
+                body: { name }
             }),
             invalidatesTags: (result, error, arg) => [
                 { type: 'Animal', id: arg.id }
