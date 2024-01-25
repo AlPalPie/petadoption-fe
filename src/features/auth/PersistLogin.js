@@ -43,6 +43,7 @@ const PersistLogin = () => {
             if (!token && persist) verifyRefreshToken()
         }
 
+        // Cleanup function: will execute when component unmounts
         return () => effectRan.current = true
 
         // eslint-disable-next-line

@@ -1,15 +1,20 @@
 import { useGetImagesQuery } from './imagesApiSlice'
 import { memo } from 'react'
 import { getBaseUrl } from '../../app/api/apiSlice'
+import { useNavigate } from 'react-router-dom'
 
 const Image = ({ imageEntityId }) => {
 
-    
+    const navigate = useNavigate()
+
     const { image } = useGetImagesQuery("imagesList", {
         selectFromResult: ({ data }) => ({
             image: data?.entities[imageEntityId]
         }),
     })
+
+
+    const onEditImageClicked = () => navigate(`/dash/animals/image/${imageEntityId}`)
 
     if (image) {
 
@@ -21,10 +26,15 @@ const Image = ({ imageEntityId }) => {
         return (
 
             <div className="card" style={ {width: '18rem'} }>
-                <img src={srcImage} className="card-img-top" alt={"TBD"}></img>
-                <div className="card-body">
-                    <p className="card-text">{image.caption}</p>
-                </div>
+                <button
+                    title="Edit Image"
+                    onClick={onEditImageClicked}
+                >
+                    <img src={srcImage} className="card-img-top" alt={"FIXME"}></img>
+                    <div className="card-body">
+                        <p className="card-text">{image.caption}</p>
+                    </div>
+                </button>
             </div>
 
         )

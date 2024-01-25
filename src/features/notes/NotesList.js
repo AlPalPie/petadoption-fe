@@ -9,7 +9,7 @@ const NotesList = () => {
     useTitle('techNotes: Notes List')
     useTitle(`${getAppTitle()}: Notes List`)
 
-    const { username, isManager, isAdmin } = useAuth()
+    const { username, isEmployee, isAdmin } = useAuth()
 
     const {
         data: notes,
@@ -35,7 +35,7 @@ const NotesList = () => {
         const { ids, entities } = notes
 
         let filteredIds
-        if (isManager || isAdmin) {
+        if (isEmployee || isAdmin) {
             filteredIds = [...ids]
         } else {
             filteredIds = ids.filter(noteId => entities[noteId].username === username)

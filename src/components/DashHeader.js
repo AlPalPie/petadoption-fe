@@ -21,7 +21,7 @@ const ANIMALS_REGEX = /^\/dash\/animals(\/)?$/
 
 
 const DashHeader = () => {
-    const { isManager, isAdmin } = useAuth()
+    const { isEmployee, isAdmin } = useAuth()
 
     const navigate = useNavigate()
     const { pathname } = useLocation()
@@ -90,7 +90,7 @@ const DashHeader = () => {
     }
 
     let userButton = null
-    if (isManager || isAdmin) {
+    if (isEmployee || isAdmin) {
         if (!USERS_REGEX.test(pathname) && pathname.includes('/dash')) {
             userButton = (
                 <button
@@ -135,20 +135,21 @@ const DashHeader = () => {
     } else {
         buttonContent = (
             <>
-                {newNoteButton}
                 {newAnimalButton}
                 {newUserButton}
-                {notesButton}
                 {userButton}
                 {logoutButton}
             </>
         )
     }
 
+    // FIXME: add these back in when enabling user comments
+    // {newNoteButton}
+    // {notesButton}
+
+
     const content = (
         <>
-            <p className={errClass}>{error?.data?.message}</p>
-
             <header className="dash-header">
                 <div className={`dash-header__container ${dashClass}`}>
                     <Link to="/dash">
@@ -159,6 +160,7 @@ const DashHeader = () => {
                     </nav>
                 </div>
             </header>
+            <p className={errClass}>{error?.data?.message}</p>
         </>
     )
 

@@ -9,9 +9,11 @@
 
 /* || VARIABLES */
 
+/* original: 0F172A */
+
 :root {
   /* COLORS */
-  --BGCOLOR: #0F172A;
+  --BGCOLOR: #27582f;
   --BORDER-COLOR: #FFF;
   --COLOR: #FFF;
   --ERROR: firebrick;

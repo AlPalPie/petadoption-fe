@@ -7,7 +7,7 @@ import useAuth from "../../hooks/useAuth"
 
 const EditAnimalForm = ({ animal }) => {
     
-    const { isManager, isAdmin } = useAuth()
+    const { isEmployee, isAdmin } = useAuth()
 
     const [updateAnimal, {
         isLoading,
@@ -70,7 +70,7 @@ const EditAnimalForm = ({ animal }) => {
 
 
     let deleteButton = null
-    if (isManager || isAdmin) {
+    if (isEmployee || isAdmin) {
         deleteButton = (
             <button
                 className="icon-button"

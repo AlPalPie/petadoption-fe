@@ -26,7 +26,7 @@ const NewUserForm = () => {
     const [validUsername, setValidUsername] = useState(false)
     const [password, setPassword] = useState('')
     const [validPassword, setValidPassword] = useState(false)
-    const [roles, setRoles] = useState(["Employee"])
+    const [roles, setRoles] = useState(["Customer"])
 
     useEffect(() => {
         setValidUsername(USER_REGEX.test(username))
@@ -41,7 +41,7 @@ const NewUserForm = () => {
             setUsername('')
             setPassword('')
             setRoles([])
-            navigate('/dash/users')
+            navigate('/')
         }
     }, [isSuccess, navigate])
 

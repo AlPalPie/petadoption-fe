@@ -18,6 +18,7 @@ import useTitle from './hooks/useTitle';
 import AnimalsList from './features/animals/AnimalsList';
 import NewAnimal from './features/animals/NewAnimal';
 import EditAnimal from './features/animals/EditAnimal';
+import EditImage from './features/images/EditImage';
 
 export const getAppTitle = () => {
   return 'Amazing Animal Adoption Agency'
@@ -34,6 +35,7 @@ function App() {
         {/* public routes */}
         <Route index element={<Public />} />
         <Route path="login" element={<Login />} />
+        <Route path="newuser" element={<NewUserForm />} />
 
         {/* Protected Routes */}
         <Route element={<PersistLogin />}>
@@ -43,10 +45,9 @@ function App() {
 
                 <Route index element={<Welcome />} />
 
-                <Route element={<RequireAuth allowedRoles={[ROLES.Manager, ROLES.Admin]} />}>
+                <Route element={<RequireAuth allowedRoles={[ROLES.Admin]} />}>
                   <Route path="users">
                     <Route index element={<UsersList />} />
-                    <Route path="new" element={<NewUserForm />} />
                     <Route path=":id" element={<EditUser />} />
                   </Route>
                 </Route>
@@ -61,6 +62,7 @@ function App() {
                   <Route index element={<AnimalsList />} />
                   <Route path="new" element={<NewAnimal />} />
                   <Route path=":id" element={<EditAnimal />} />
+                  <Route path="image/:id" element={<EditImage />} />
                 </Route>
 
               </Route>{/* End Dash */}

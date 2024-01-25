@@ -7,7 +7,7 @@ import useAuth from "../../hooks/useAuth"
 
 const EditNoteForm = ({ note, users }) => {
 
-    const { isManager, isAdmin } = useAuth()
+    const { isEmployee, isAdmin } = useAuth()
 
     const [updateNote, {
         isLoading,
@@ -78,7 +78,7 @@ const EditNoteForm = ({ note, users }) => {
 
 
     let deleteButton = null
-    if (isManager || isAdmin) {
+    if (isEmployee || isAdmin) {
         deleteButton = (
             <button
                 className="icon-button"

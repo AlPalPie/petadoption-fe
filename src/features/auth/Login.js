@@ -50,7 +50,8 @@ const Login = () => {
             } else {
                 setErrMsg(err.data?.message);
             }
-            errRef.current.focus();
+
+            if (errRef.current) errRef.current.focus()
         }
     }
 
@@ -65,7 +66,7 @@ const Login = () => {
     const content = (
         <section className="public">
             <header>
-                <h1>Employee Login</h1>
+                <h1>Customer Login</h1>
             </header>
             <main className="login">
                 <p ref={errRef} className={errClass} aria-live="assertive">{errMsg}</p>
