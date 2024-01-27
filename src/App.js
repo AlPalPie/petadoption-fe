@@ -37,12 +37,12 @@ function App() {
         <Route path="login" element={<Login />} />
         <Route path="newuser" element={<NewUserForm />} />
 
-        {/* Protected Routes */}
-        <Route element={<PersistLogin />}>
-          <Route element={<RequireAuth allowedRoles={[...Object.values(ROLES)]} />}>
-            <Route element={<Prefetch />}>
-              <Route path="dash" element={<DashLayout />}>
+        <Route element={<Prefetch />}>
+          <Route path="dash" element={<DashLayout />}>
 
+            {/* Protected Routes */}
+            <Route element={<PersistLogin />}>
+              <Route element={<RequireAuth allowedRoles={[...Object.values(ROLES)]} />}>
                 <Route index element={<Welcome />} />
 
                 <Route element={<RequireAuth allowedRoles={[ROLES.Admin]} />}>
@@ -57,18 +57,24 @@ function App() {
                   <Route path="new" element={<NewNote />} />
                   <Route path=":id" element={<EditNote />} />
                 </Route>
+              </Route>
+            </Route>{/* End Protected Routes */}
 
-                <Route path="animals">
-                  <Route index element={<AnimalsList />} />
+            <Route path="animals">
+              <Route index element={<AnimalsList />} />
+
+              {/* Protected Routes */}
+              <Route element={<PersistLogin />}>
+                <Route element={<RequireAuth allowedRoles={[...Object.values(ROLES)]} />}>
                   <Route path="new" element={<NewAnimal />} />
                   <Route path=":id" element={<EditAnimal />} />
                   <Route path="image/:id" element={<EditImage />} />
                 </Route>
-
-              </Route>{/* End Dash */}
+              </Route>{/* End Protected Routes */}
             </Route>
-          </Route>
-        </Route>{/* End Protected Routes */}
+
+          </Route>{/* End Dash */}
+        </Route>
 
       </Route>
     </Routes >

@@ -107,6 +107,8 @@ const Login = () => {
                         Trust This Device
                     </label>
                 </form>
+
+                <p className="margintop">Don't have an account? <Link to="/newuser" className="underline" >Sign Up</Link></p>
             </main>
             <footer>
                 <Link to="/">Back to Home</Link>

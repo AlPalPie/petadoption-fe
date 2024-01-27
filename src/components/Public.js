@@ -3,18 +3,27 @@ import ImagesList from '../features/images/ImagesList'
 import { getAppTitle } from '../App'
 
 const Public = () => {
+
     const content = (
         <section className="public">
             <header>
-                <h1>Welcome to the <span className="nowrap">{getAppTitle()}</span></h1>
+                <h3>
+                    <span className="nowrap floatleft">Welcome to the {getAppTitle()}!</span>
+                    <span className="public__auth floatright">
+                        <span><Link to="/login" className="public__auth">User Login</Link></span>
+                        <span><Link to="/newuser">Create Account</Link></span>
+                    </span>
+                </h3>
             </header>
             <main className="public__main">
-                <h3>These furry friends are all available for adoption!</h3>
+                <div className="welcome">
+                    <p><Link to="/dash/animals">View Animals</Link></p>
+                    <p><Link to="/login">Login to add your own Animals or Images</Link></p>
+                </div>
+                <h4><br></br>These furry friends are all available for adoption!<br></br><br></br></h4>
                 <ImagesList />
             </main>
             <footer>
-                <Link to="/login">User Login</Link>
-                <Link to="/newuser">Create Account</Link>
                 <span className="attribution">
                     <a href="http://www.freepik.com">*Background Image Designed by Elsystudio / Freepik</a>
                 </span>

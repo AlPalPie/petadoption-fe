@@ -29,8 +29,8 @@ const DashFooter = () => {
         <footer className="dash-footer">
             <div className="dash-footer__info">
                 {goHomeButton}
-                <p>Current User: {username}</p>
-                <p>Status: {status}</p>
+                {(username) ? (<p>Current User: {username}</p>) : ""}
+                {(status) ? (<p>Status: {status}</p>) : ""}
             </div>
             <span className="attribution">
                     <a href="http://www.freepik.com">*Background Image Designed by Elsystudio / Freepik</a>

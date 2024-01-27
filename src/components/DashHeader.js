@@ -6,7 +6,8 @@ import {
     faUserGear,
     faUserPlus,
     faRightFromBracket,
-    faCat
+    faCat,
+    faPlus
 } from "@fortawesome/free-solid-svg-icons"
 import { useNavigate, Link, useLocation } from 'react-router-dom'
 import { useSendLogoutMutation } from '../features/auth/authApiSlice'
@@ -21,7 +22,7 @@ const ANIMALS_REGEX = /^\/dash\/animals(\/)?$/
 
 
 const DashHeader = () => {
-    const { isEmployee, isAdmin } = useAuth()
+    const { status, isEmployee, isAdmin } = useAuth()
 
     const navigate = useNavigate()
     const { pathname } = useLocation()
@@ -40,6 +41,7 @@ const DashHeader = () => {
     const onNewNoteClicked = () => navigate('/dash/notes/new')
     const onNewUserClicked = () => navigate('/dash/users/new')
     const onNewAnimalClicked = () => navigate('/dash/animals/new')
+    const onAnimalsClicked = () => navigate('/dash/animals')
     const onNotesClicked = () => navigate('/dash/notes')
     const onUsersClicked = () => navigate('/dash/users')
 
@@ -50,6 +52,8 @@ const DashHeader = () => {
 
     let newNoteButton = null
     if (NOTES_REGEX.test(pathname)) {
+        // FIXME:
+        // eslint-disable-next-line
         newNoteButton = (
             <button
                 className="icon-button"
@@ -62,7 +66,7 @@ const DashHeader = () => {
     }
 
     let newAnimalButton = null
-    if (ANIMALS_REGEX.test(pathname)) {
+    if (ANIMALS_REGEX.test(pathname) && (isEmployee || isAdmin)) {
         newAnimalButton = (
             <button
                 className="icon-button"
@@ -70,7 +74,7 @@ const DashHeader = () => {
                 onClick={onNewAnimalClicked}
             >
                 <div className="icon-row">
-                    <FontAwesomeIcon icon={faCat} />
+                    <FontAwesomeIcon icon={faPlus} />
                 </div>
             </button>
         )
@@ -85,6 +89,21 @@ const DashHeader = () => {
                 onClick={onNewUserClicked}
             >
                 <FontAwesomeIcon icon={faUserPlus} />
+            </button>
+        )
+    }
+
+    let animalButton = null
+    if (!ANIMALS_REGEX.test(pathname) && pathname.includes('/dash')) {
+        animalButton = (
+            <button
+                className="icon-button"
+                title="Animals"
+                onClick={onAnimalsClicked}
+            >
+                <div className="icon-row">
+                    <FontAwesomeIcon icon={faCat} />
+                </div>
             </button>
         )
     }
@@ -106,6 +125,8 @@ const DashHeader = () => {
 
     let notesButton = null
     if (!NOTES_REGEX.test(pathname) && pathname.includes('/dash')) {
+        // FIXME:
+        // eslint-disable-next-line
         notesButton = (
             <button
                 className="icon-button"
@@ -117,15 +138,18 @@ const DashHeader = () => {
         )
     }
 
-    const logoutButton = (
-        <button
-            className="icon-button"
-            title="Logout"
-            onClick={sendLogout}
-        >
-            <FontAwesomeIcon icon={faRightFromBracket} />
-        </button>
-    )
+    let logoutButton = null
+    if (status) {
+        logoutButton = (
+            <button
+                className="icon-button"
+                title="Logout"
+                onClick={sendLogout}
+            >
+                <FontAwesomeIcon icon={faRightFromBracket} />
+            </button>
+        )
+    }
 
     const errClass = isError ? "errmsg" : "offscreen"
 
@@ -136,17 +160,28 @@ const DashHeader = () => {
         buttonContent = (
             <>
                 {newAnimalButton}
+                {/* FIXME: newNoteButton */}
                 {newUserButton}
+                {animalButton}
+                {/* FIXME: notesButton */}
                 {userButton}
                 {logoutButton}
             </>
         )
     }
 
-    // FIXME: add these back in when enabling user comments
-    // {newNoteButton}
-    // {notesButton}
 
+    let authContent
+    if (!status) {
+        authContent = (
+            <>
+                <span className="public__auth floatright">
+                    <span><Link to="/login" className="public__auth">User Login</Link></span>
+                    <span><Link to="/newuser">Create Account</Link></span>
+                </span>
+            </>
+        )
+    }
 
     const content = (
         <>
@@ -155,6 +190,7 @@ const DashHeader = () => {
                     <Link to="/dash">
                         <h1 className="dash-header__title">{getAppTitle()}</h1>
                     </Link>
+                    {authContent}
                     <nav className="dash-header__nav">
                         {buttonContent}
                     </nav>

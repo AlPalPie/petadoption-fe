@@ -19,15 +19,15 @@ const Welcome = () => {
 
             <h1>Welcome {username}!</h1>
 
-            <p><Link to="/dash/notes">View techNotes</Link></p>
+            {/* FIXME: <p><Link to="/dash/notes">View techNotes</Link></p> */}
 
-            <p><Link to="/dash/animals">View animals</Link></p>
+            <p><Link to="/dash/animals">View Animals</Link></p>
 
-            <p><Link to="/dash/notes/new">Add New techNote</Link></p>
+            {/* FIXME: <p><Link to="/dash/notes/new">Add New techNote</Link></p> */}
 
             {(isAdmin) && <p><Link to="/dash/users">View User Settings</Link></p>}
 
-            {(isEmployee || isAdmin) && <p><Link to="/newuser">Add New User</Link></p>}
+            {<p><Link to="/newuser">Add New User</Link></p>}
 
         </section>
     )
