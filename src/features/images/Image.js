@@ -28,9 +28,9 @@ const Image = ({ imageEntityId }) => {
 
         const imgClass = status ? "image_card" : "image_card_public"
 
-        return (
-
-            <div className={imgClass} style={ {width: '18rem'} }>
+        let content
+        if (status) {
+            content = (
                 <button
                     title="Edit Image"
                     onClick={onEditImageClicked}
@@ -40,6 +40,17 @@ const Image = ({ imageEntityId }) => {
                         <p className="card-text">{image.caption}</p>
                     </div>
                 </button>
+            )
+        } else {
+            content = (
+                <img src={srcImage} className="card-img-top" alt={"FIXME"}></img>
+            )
+        }
+
+        return (
+
+            <div className={imgClass} style={ {width: '18rem'} }>
+                {content}
             </div>
 
         )

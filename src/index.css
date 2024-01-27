@@ -474,3 +474,8 @@ tr {
 .subtext {
   font-size: 1rem;
 }
+
+.intro {
+  margin-bottom: 5rem;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
