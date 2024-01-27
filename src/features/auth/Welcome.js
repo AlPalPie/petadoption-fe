@@ -5,7 +5,7 @@ import { getAppTitle } from '../../App'
 
 const Welcome = () => {
 
-    const { username, isEmployee, isAdmin } = useAuth()
+    const { username, isAdmin } = useAuth()
 
     useTitle(`Welcome ${username} to the ${getAppTitle()}`)
 
@@ -27,7 +27,7 @@ const Welcome = () => {
 
             {(isAdmin) && <p><Link to="/dash/users">View User Settings</Link></p>}
 
-            {<p><Link to="/newuser">Add New User</Link></p>}
+            {(isAdmin) && <p><Link to="/newuser">Add New User</Link></p>}
 
         </section>
     )

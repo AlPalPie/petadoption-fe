@@ -50,22 +50,26 @@ const Animal = ({ animalEntityId }) => {
     if (animal) {
         content = (
             <>
-                <div className="inline">
-                    <h3>{animal.name}</h3>
-                    <button
-                        className="icon-button"
-                        title="Edit Animal"
-                        onClick={onEditAnimalClicked}
-                    >
-                        <div className="icon-row">
-                            <FontAwesomeIcon icon={faPencil} />
+                <div className="animal_card">
+                    <div className="animal_profile">
+                        <div className="inline">
+                            <h1>{animal.name}</h1>
+                            <button
+                                className="icon-button"
+                                title="Edit Animal"
+                                onClick={onEditAnimalClicked}
+                            >
+                                <div className="icon-row">
+                                    <FontAwesomeIcon icon={faPencil} />
+                                </div>
+                            </button>
                         </div>
-                    </button>
-                </div>
-                <p>{animal.description}</p>
-                <div>
-                    <div className="images_list">
-                        {imageContent}
+                        <p>{animal.description}</p>
+                    </div>
+                    <div>
+                        <div className="images_list">
+                            {imageContent}
+                        </div>
                     </div>
                 </div>
             </>

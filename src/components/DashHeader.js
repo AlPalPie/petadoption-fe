@@ -109,7 +109,7 @@ const DashHeader = () => {
     }
 
     let userButton = null
-    if (isEmployee || isAdmin) {
+    if (isAdmin) {
         if (!USERS_REGEX.test(pathname) && pathname.includes('/dash')) {
             userButton = (
                 <button

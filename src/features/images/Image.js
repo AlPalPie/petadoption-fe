@@ -2,10 +2,13 @@ import { useGetImagesQuery } from './imagesApiSlice'
 import { memo } from 'react'
 import { getBaseUrl } from '../../app/api/apiSlice'
 import { useNavigate } from 'react-router-dom'
+import useAuth from '../../hooks/useAuth'
 
 const Image = ({ imageEntityId }) => {
 
     const navigate = useNavigate()
+
+    const { status } = useAuth()
 
     const { image } = useGetImagesQuery("imagesList", {
         selectFromResult: ({ data }) => ({
@@ -23,9 +26,11 @@ const Image = ({ imageEntityId }) => {
             srcImage = getBaseUrl() + '/' + image.path
         }
 
+        const imgClass = status ? "image_card" : "image_card_public"
+
         return (
 
-            <div className="card" style={ {width: '18rem'} }>
+            <div className={imgClass} style={ {width: '18rem'} }>
                 <button
                     title="Edit Image"
                     onClick={onEditImageClicked}

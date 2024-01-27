@@ -95,7 +95,7 @@ const EditImageForm = ({ image }) => {
                     </div>
                 </div>
 
-                <div className="card" style={ {width: '18rem'} }>
+                <div style={ {width: '18rem'} }>
                     <img src={srcImage} className="card-img-top" alt={"FIXME"}></img>
                 </div>
 
