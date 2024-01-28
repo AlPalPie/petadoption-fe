@@ -2,9 +2,9 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { setCredentials } from '../../features/auth/authSlice'
 
 export const getBaseUrl = () => {
-    return 'http://localhost:3500'
+    // DEPLOY: modify this for dev or deployment
+    return 'http://amazinganimaladoptionagency.onrender.com'
 }
-
 
 const baseQuery = fetchBaseQuery({
     baseUrl: getBaseUrl(),
