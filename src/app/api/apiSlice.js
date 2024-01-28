@@ -3,7 +3,7 @@ import { setCredentials } from '../../features/auth/authSlice'
 
 export const getBaseUrl = () => {
     // DEPLOY: modify this for dev or deployment
-    return 'http://amazinganimaladoptionagency.onrender.com'
+    return 'https://amazinganimaladoptionagency.onrender.com'
 }
 
 const baseQuery = fetchBaseQuery({
