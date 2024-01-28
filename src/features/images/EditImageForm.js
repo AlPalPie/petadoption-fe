@@ -31,7 +31,7 @@ const EditImageForm = ({ image }) => {
 
         if (isSuccess || isDelSuccess) {
             setCaption('')
-            navigate('/animals')
+            navigate('/dash/animals')
         }
 
     }, [isSuccess, isDelSuccess, navigate])
