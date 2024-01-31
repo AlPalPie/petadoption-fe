@@ -3,6 +3,7 @@ import { setCredentials } from '../../features/auth/authSlice'
 
 export const getBaseUrl = () => {
     // DEPLOY: modify this for dev or deployment
+    // dev can use localhost such as 'http://localhost:3500'
     return 'https://amazinganimaladoptionagency-api.onrender.com'
 }
 

@@ -1,70 +1,93 @@
-# Getting Started with Create React App
+# Hosted
+TBD
+
+
+# Pet Adoption Website Using the MERN Stack
+
+This is the frontend for a mock pet adoption website. The accompanying backend web API code is here:
+> https://github.com/AlPalPie/petadoption-be
+
+Users can view profiles and pictures of animals added by other users.
+Users must create an account and login in order to be able to add, update, or delete animals or images.
+Users can create an account with one of 3 roles, in order of increasing privileges - Customer, Employee, Admin.
+For demonstration purposes, all 3 roles are available to anyone.
+
+This is a personal project whose purpose is to sharpen my skills in full-stack development.
+
+My wife and I live in a community where several stray cats have made a home amid the landscaping, mooching off many of the residents for sustenance and all-around being semi-affectionate bundles of joy. 
+We love to take daily walks to visit these cats and take care of them. One of them even brought us a tiny bird to our doorstep! (the bird managed to escape safely)
+
+I built this app to showcase those lovely cats! But also to mimic a pet adoption website and showcase the following features:
+
+- Full Stack app using the MERN stack
+- Complete RESTful backend web API and database using ExpressJS, Mongoose, MongoDB
+- Frontend API requests and data caching with RTK Query
+- User authentication and authorization using JSON Web Tokens (JWT)
+- Frontend global state management using Redux and React
+- Support for uploading image files (JPEG/PNG) through multipart form data using the multer middleware package
+
+
+
+# Usage
+
+
+### To install package dependencies:
+```
+npm install
+```
+
+### The current code is setup for actual deployment, hosted at:
+```
+TBD
+```
+
+Build command:
+```
+npm run build
+```
+
+To run the app:
+```
+npm start
+```
+
+
+### To modify the code for development, search the code for "DEPLOY" and modify as follows:
+
+#### 1. In src/app/store.js
+
+  I turn off the redux store devTools flag (which allows Redux DevTools integration).
+  This flag should be set to true or removed (since default is true) if you want Redux DevTools integration
+
+```
+  devTools: true
+```
+
+#### 2. In src/app/api/apiSlice.js
+
+   The file contains the api domain name which you will need to update to wherever you host your backend.
+   For development you can use your localhost as shown below:
+
+```
+  export const getBaseUrl = () => {
+    // DEPLOY: modify this for dev or deployment
+    return 'http://localhost:3500'
+  }
+```
+
+#### 3. To run in development mode
+```
+npm start
+```
+
+
+
+# Credit
+
+### Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
 
-In the project directory, you can run:
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
