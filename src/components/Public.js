@@ -30,6 +30,7 @@ const Public = () => {
                         <li>User authentication and authorization using JSON Web Tokens (JWT)</li>
                         <li>Frontend global state management using Redux and React</li>
                         <li>Support for uploading image files (JPEG/PNG) through multipart form data using the multer middleware package</li>
+                        <li>Cloud object storage for images using Amazon AWS S3</li>
                     </ul>
                 </div>
                 <div className="welcome">
