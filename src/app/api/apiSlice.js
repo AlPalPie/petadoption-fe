@@ -5,7 +5,7 @@ export const getBaseUrl = () => {
     // DEPLOY: modify this for dev or deployment
     // dev can use localhost such as 'http://localhost:3500'
     // ex host: 'https://amazinganimaladoptionagency-api.onrender.com'
-    return 'https://amazinganimaladoptionagency.onrender.com'
+    return 'https://amazinganimaladoptionagency-api.onrender.com'
 }
 
 const baseQuery = fetchBaseQuery({
