@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSave, faTrashCan } from "@fortawesome/free-solid-svg-icons"
 import useAuth from "../../hooks/useAuth"
-import { getBaseUrl } from "../../app/api/apiSlice"
 
 const EditImageForm = ({ image }) => {
     
@@ -72,7 +71,7 @@ const EditImageForm = ({ image }) => {
 
     let srcImage = "https://via.placeholder.com/400"
     if (image.path) {
-        srcImage = getBaseUrl() + '/' + image.path
+        srcImage = image.path
     }
 
     const content = (

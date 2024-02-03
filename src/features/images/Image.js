@@ -1,6 +1,5 @@
 import { useGetImagesQuery } from './imagesApiSlice'
 import { memo } from 'react'
-import { getBaseUrl } from '../../app/api/apiSlice'
 import { useNavigate } from 'react-router-dom'
 import useAuth from '../../hooks/useAuth'
 
@@ -23,7 +22,7 @@ const Image = ({ imageEntityId }) => {
 
         let srcImage = "https://via.placeholder.com/400"
         if (image.path) {
-            srcImage = getBaseUrl() + '/' + image.path
+            srcImage = image.path
         }
 
         const imgClass = status ? "image_card" : "image_card_public"

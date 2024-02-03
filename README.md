@@ -1,5 +1,7 @@
 # Hosted
-TBD
+```
+https://amazinganimaladoptionagency.onrender.com
+```
 
 
 # Pet Adoption Website Using the MERN Stack
@@ -25,7 +27,7 @@ I built this app to showcase those lovely cats! But also to mimic a pet adoption
 - User authentication and authorization using JSON Web Tokens (JWT)
 - Frontend global state management using Redux and React
 - Support for uploading image files (JPEG/PNG) through multipart form data using the multer middleware package
-
+- Cloud object storage using Amazon AWS S3
 
 
 # Usage
@@ -38,7 +40,7 @@ npm install
 
 ### The current code is setup for actual deployment, hosted at:
 ```
-TBD
+https://amazinganimaladoptionagency.onrender.com
 ```
 
 Build command:
