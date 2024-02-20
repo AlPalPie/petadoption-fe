@@ -5,7 +5,8 @@ export const getBaseUrl = () => {
     // DEPLOY: modify this for dev or deployment
     // dev can use localhost such as 'http://localhost:3500'
     // ex host: 'https://amazinganimaladoptionagency-api.onrender.com'
-    return 'https://amazinganimaladoptionagency-api.onrender.com'
+    // ex host: 'http://ec2-3-17-58-92.us-east-2.compute.amazonaws.com:3500'
+    return 'http://ec2-3-17-58-92.us-east-2.compute.amazonaws.com:3500'
 }
 
 const baseQuery = fetchBaseQuery({
