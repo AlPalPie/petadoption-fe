@@ -1,5 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
+// This is an example of creating Redux state (slices) without using RTK Query
+// Reducers are functions that handle state updates (not allowed to modify state directly in the redux paradigm)
 const authSlice = createSlice({
     name: 'auth',
     initialState: { token: null },

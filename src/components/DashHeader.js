@@ -4,7 +4,6 @@ import {
     faFileCirclePlus,
     faFilePen,
     faUserGear,
-    faUserPlus,
     faRightFromBracket,
     faCat,
     faPlus
@@ -39,7 +38,6 @@ const DashHeader = () => {
     }, [isSuccess, navigate])
 
     const onNewNoteClicked = () => navigate('/dash/notes/new')
-    const onNewUserClicked = () => navigate('/dash/users/new')
     const onNewAnimalClicked = () => navigate('/dash/animals/new')
     const onAnimalsClicked = () => navigate('/dash/animals')
     const onNotesClicked = () => navigate('/dash/notes')
@@ -76,19 +74,6 @@ const DashHeader = () => {
                 <div className="icon-row">
                     <FontAwesomeIcon icon={faPlus} />
                 </div>
-            </button>
-        )
-    }
-
-    let newUserButton = null
-    if (USERS_REGEX.test(pathname)) {
-        newUserButton = (
-            <button
-                className="icon-button"
-                title="New User"
-                onClick={onNewUserClicked}
-            >
-                <FontAwesomeIcon icon={faUserPlus} />
             </button>
         )
     }
@@ -161,7 +146,6 @@ const DashHeader = () => {
             <>
                 {newAnimalButton}
                 {/* FIXME: newNoteButton */}
-                {newUserButton}
                 {animalButton}
                 {/* FIXME: notesButton */}
                 {userButton}

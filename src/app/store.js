@@ -20,6 +20,10 @@ export const store = configureStore({
     middleware: getDefaultMiddleware =>
         getDefaultMiddleware().concat(apiSlice.middleware),
     // DEPLOY: set to true for dev, set to false for deployment; default is true
+    // Use this for DEVELOPMENT:
+    // devTools: true
+    // Use this for PRODUCTION:
+    // devTools: false
     devTools: false
 })
 

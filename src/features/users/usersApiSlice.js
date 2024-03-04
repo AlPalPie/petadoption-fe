@@ -24,7 +24,11 @@ const initialState = usersAdapter.getInitialState()
 
 // The "builder" is an object provided as an argument to the "endpoints" function when you create an API using createAPI()
 //   It contains methods for defining different types of endpoints, such as query, mutation, and queryMap.
-
+//
+// invalidatesTags:
+// After a mutation is executed successfully, the endpoint's invalidatesTags option determines which cache tags should be invalidated
+// When the cache tag is invalidated, it triggers a re-fetch of the affected data from the server and stores it in the Redux store.
+// This ensures that the Redux store remains synchronized with the backend data and that components receive the latest information.
 export const usersApiSlice = apiSlice.injectEndpoints({
     endpoints: builder => ({
         getUsers: builder.query({
@@ -74,6 +78,18 @@ export const usersApiSlice = apiSlice.injectEndpoints({
                 { type: 'User', id: arg.id }
             ]
         }),
+        updateUserFavorites: builder.mutation({
+            query: initialUserData => ({
+                url: '/users/favorites',
+                method: 'PATCH',
+                body: {
+                    ...initialUserData,
+                }
+            }),
+            invalidatesTags: (result, error, arg) => [
+                { type: 'User', id: arg.id }
+            ]
+        }),
         deleteUser: builder.mutation({
             query: ({ id }) => ({
                 url: `/users`,
@@ -91,6 +107,7 @@ export const {
     useGetUsersQuery,
     useAddNewUserMutation,
     useUpdateUserMutation,
+    useUpdateUserFavoritesMutation,
     useDeleteUserMutation,
 } = usersApiSlice
 

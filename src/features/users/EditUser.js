@@ -10,6 +10,7 @@ const EditUser = () => {
 
     const { id } = useParams()
 
+    // selectFromResult is an arbitrary function name but used as a callback function to modify the return data
     const { user } = useGetUsersQuery("usersList", {
         selectFromResult: ({ data }) => ({
             user: data?.entities[id]

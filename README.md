@@ -9,11 +9,6 @@ https://amazinganimaladoptionagency.onrender.com
 This is the frontend for a mock pet adoption website. The accompanying backend web API code is here:
 > https://github.com/AlPalPie/petadoption-be
 
-Users can view profiles and pictures of animals added by other users.
-Users must create an account and login in order to be able to add, update, or delete animals or images.
-Users can create an account with one of 3 roles, in order of increasing privileges - Customer, Employee, Admin.
-For demonstration purposes, all 3 roles are available to anyone.
-
 This is a personal project whose purpose is to sharpen my skills in full-stack development.
 
 My wife and I live in a community where several stray cats have made a home amid the landscaping, mooching off many of the residents for sustenance and all-around being semi-affectionate bundles of joy. 
@@ -22,12 +17,20 @@ We love to take daily walks to visit these cats and take care of them. One of th
 I built this app to showcase those lovely cats! But also to mimic a pet adoption website and showcase the following features:
 
 - Full Stack app using the MERN stack
-- Complete RESTful backend web API and database using ExpressJS, Mongoose, MongoDB
+- Complete RESTful backend web API and database using ExpressJS, Mongoose, MongoDB - hosted on AWS EC2
 - Frontend API requests and data caching with RTK Query
 - User authentication and authorization using JSON Web Tokens (JWT)
 - Frontend global state management using Redux and React
 - Support for uploading image files (JPEG/PNG) through multipart form data using the multer middleware package
 - Cloud object storage using Amazon AWS S3
+
+Users can perform the following actions:
+
+- All users can view profiles and pictures of animals added by other users.
+- Users must create an account and login in order to be able to add, update, or delete animals or images.
+  - Users can create an account with one of 3 roles, in order of increasing privileges - Customer, Employee, Admin.
+  - For demonstration purposes, all 3 roles are available to anyone.
+- Users can favorite animals and view a list of their favorites on their account dashboard
 
 
 # Usage

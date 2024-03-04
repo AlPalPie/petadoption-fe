@@ -2,13 +2,18 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { setCredentials } from '../../features/auth/authSlice'
 
 export const getBaseUrl = () => {
-    // DEPLOY: modify this for dev or deployment
-    // dev can use localhost such as 'http://localhost:3500'
-    // ex host: 'https://amazinganimaladoptionagency-api.onrender.com'
-    // ex host: 'https://3.17.58.92.nip.io'
+    // Use this for DEVELOPMENT:
+    // return 'http://localhost:3500'
+    // Use one of these for PRODUCTION depending on where web service is hosted:
+    // return 'https://amazinganimaladoptionagency.onrender.com'
+    // return 'https://3.17.58.92.nip.io'
     return 'https://3.17.58.92.nip.io'
 }
 
+// prepareHeaders is a built-in option accepted by fetchBaseQuery which allows you to customize the headers of the HTTP request before it is sent.
+// When fetchBaseQuery internally executes the prepareHeaders function during the request process, it passes two arguments to it:
+//      - the headers object
+//      - and an object containing contextual information. This object includes a getState function, among other things
 const baseQuery = fetchBaseQuery({
     baseUrl: getBaseUrl(),
     credentials: 'include',

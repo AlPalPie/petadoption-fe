@@ -9,6 +9,11 @@ import PulseLoader from 'react-spinners/PulseLoader'
 const PersistLogin = () => {
 
     const [persist] = usePersist()
+
+    // useSelector is a React-Redux Hook that allows components to access the store.
+	// It accepts a selector function as an argument
+	// Any time an action has been dispatched and the Redux store has been updated, useSelector will re-run our selector function.
+    // If the selector returns a different value than last time, useSelector will make sure our component re-renders with the new value.
     const token = useSelector(selectCurrentToken)
     const effectRan = useRef(false)
 
