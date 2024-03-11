@@ -13,13 +13,13 @@
 
 :root {
   /* COLORS */
-  --BGCOLOR: #1d4223;
+  --BGCOLOR: #f2f2ea;
   --BORDER-COLOR: #FFF;
-  --COLOR: #FFF;
+  --COLOR: #000000;
   --ERROR: firebrick;
   --INACTIVE: lightgray;
-  --LINK-COLOR: whitesmoke;
-  --LINK-HOVER: rgba(245, 245, 245, 0.9);
+  --LINK-COLOR: rgba(40, 17, 39, 0.459);
+  --LINK-HOVER: rgba(15, 29, 222, 0.9);
   --NOTE-BGCOLOR: hsla(240, 64%, 27%, 0.65);
   --STATUS-COMPLETE: limegreen;
   --STATUS-OPEN: firebrick;
@@ -87,9 +87,9 @@
 body {
   font-family: 'Nunito', sans-serif;
   min-height: 100vh;
-  background-color: var(--BGCOLOR);
+  /* background-color: var(--BGCOLOR); */
   color: var(--COLOR);
-  background-image: url('./img/background.jpg');
+  background-image: url('./img/purple_paw_background.jpeg');
   background-size: cover;
   background-position: top right;
   background-blend-mode: multiply;
@@ -115,6 +115,7 @@ a {
 
 a:any-link {
   color: var(--LINK-COLOR);
+  font-weight: bold;
 }
 
 a:hover,
@@ -455,10 +456,12 @@ tr {
   padding: 2rem;
   /* border: 0.25rem solid whitesmoke;
   border-radius: 3em; */
-  background-color: #d09940;
+  background-color: #ffffff;
   border: 0.25rem solid whitesmoke;
   border-radius: 2em;
-  max-width: 1600px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 60vw;
 }
 
 .animal_profile {
@@ -469,7 +472,7 @@ tr {
   margin-bottom: 2rem;
   padding: 2rem;
   gap: 2rem;
-  background-color: #d09940;
+  background-color: #ddd5e1;
   /* border: 0.25rem solid whitesmoke; */
   border-radius: 2em;
 }

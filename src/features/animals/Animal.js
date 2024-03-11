@@ -72,6 +72,7 @@ const Animal = ({ animalEntityId }) => {
     }
 
     const onEditAnimalClicked = () => navigate(`/dash/animals/${animalEntityId}`)
+    const onFavoriteAnimalClickedNotLoggedIn = () => navigate('/login')
     const onFavoriteAnimalClicked = async (e) => {
         await updateUserFavorites({ userId, animalId })
     }
@@ -79,12 +80,15 @@ const Animal = ({ animalEntityId }) => {
 
     let favoriteButton
     if (userId === '') {
-        favoriteButton = null
+        const favoriteIcon = <FontAwesomeIcon icon={faStarRegular} />
+        
+        favoriteButton = (
+            <button className="icon-button" title="Favorite Animal" onClick={onFavoriteAnimalClickedNotLoggedIn}>
+                <div className="icon-row">{favoriteIcon}</div>
+            </button>
+        )
     } else {
-
         const favorites = user.favorites
-
-
         let favoriteIcon
         if (favorites.includes(animalId)) {
             favoriteIcon = <FontAwesomeIcon icon={faStarSolid} />
@@ -93,17 +97,10 @@ const Animal = ({ animalEntityId }) => {
         }
     
         favoriteButton = (
-            <button
-                className="icon-button"
-                title="Favorite Animal"
-                onClick={onFavoriteAnimalClicked}
-            >
-                <div className="icon-row">
-                    {favoriteIcon}
-                </div>
+            <button className="icon-button" title="Favorite Animal" onClick={onFavoriteAnimalClicked}>
+                <div className="icon-row">{favoriteIcon}</div>
             </button>
         )
-
     }
 
     if (animal) {

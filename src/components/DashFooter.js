@@ -10,7 +10,13 @@ const DashFooter = () => {
     const navigate = useNavigate()
     const { pathname } = useLocation()
 
-    const onGoHomeClicked = () => navigate('/dash')
+    const onGoHomeClicked = () => {
+        if (!status) {
+            navigate('/')
+        } else {
+            navigate('/dash')
+        }
+    }
 
     let goHomeButton = null
     if (pathname !== '/dash') {
@@ -33,8 +39,11 @@ const DashFooter = () => {
                 {(status) ? (<p>Status: {status}</p>) : ""}
             </div>
             <span className="attribution">
-                    <a href="http://www.freepik.com">*Background Image Designed by Elsystudio / Freepik</a>
+                    <a href="https://www.freepik.com">*Background Image Designed by Elsystudio / Freepik</a>
+                    {' : '}
+                    <a href="https://icons8.com/icon/1OTMIGesNl9k/kissing-cat">Kissing Cat</a> favicon by <a href="https://icons8.com">Icons8</a>
             </span>
+            
         </footer>
     )
     return content
